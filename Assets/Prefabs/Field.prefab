@@ -138,3 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ee4d794375f6e40bd27a8479d83f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CantDo: {fileID: 2100000, guid: 636debbda5c640b448a9f1ff032d0528, type: 2}
+  CanDo: {fileID: 2100000, guid: 949ba3f1a694f024caa40bcd870ac5a1, type: 2}
+  Done: {fileID: 2100000, guid: 2645c9f8668afa240927a14c9ca6f5d4, type: 2}
+  neededWork: 0
