@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void SetField(Field f)
     {
-
+        CurrentField = f;
         if (infoPanel == null)
         {
             infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();

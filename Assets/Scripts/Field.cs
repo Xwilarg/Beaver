@@ -25,18 +25,26 @@ public class Field : MonoBehaviour
     public void IncreaseWork()
     {
         if (gm.work == neededWork)
+        {
             neededWork++;
+            UpdateMats();
+        }
     }
 
-    private void Start()
+    private void UpdateMats()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (gm.work == neededWork)
             GetComponent<MeshRenderer>().material = CanDo;
         else if (gm.work > neededWork)
             GetComponent<MeshRenderer>().material = CantDo;
         else
             GetComponent<MeshRenderer>().material = Done;
+    }
+
+    private void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        UpdateMats();
     }
 
     private void OnMouseDown()
