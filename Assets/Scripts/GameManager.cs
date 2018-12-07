@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private bool isMaster;
 
+    [Header("UI")]
     [SerializeField]
     private Db db;
     [SerializeField]
@@ -14,8 +15,21 @@ public class GameManager : MonoBehaviour
     private InputField passwordField;
     [SerializeField]
     private Text errorText;
+    [Header("Materials")]
+    [SerializeField]
+    private Material baseMat;
+    [SerializeField]
+    private Material selectedMat;
 
-    public Field CurrentField { set; get; }
+    public Field CurrentField { private set; get; }
+
+    public void SetField(Field f)
+    {
+        if (CurrentField != null)
+            CurrentField.GetComponent<MeshRenderer>().material = baseMat;
+        CurrentField = f;
+        CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+    }
 
     private void Start()
     {

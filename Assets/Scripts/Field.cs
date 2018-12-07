@@ -13,7 +13,7 @@ public class Field : MonoBehaviour
 
     private void OnMouseDown()
     {
-        gm.CurrentField = this;
+        gm.SetField(this);
         debug.SetText("Current field: " + name);
     }
 }
