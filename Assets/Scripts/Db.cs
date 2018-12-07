@@ -23,7 +23,8 @@ public class Db : MonoBehaviour
         { "Kinoi", new Tuple<string, bool>("_Ino", false) },
         { "Denko", new Tuple<string, bool>("parr", false) },
         { "Mino", new Tuple<string, bool>("@w@", false) },
-        { "Wan", new Tuple<string, bool>("dennn", false) }
+        { "Wan", new Tuple<string, bool>("dennn", false) },
+        { "", new Tuple<string, bool>("", true)}
     };
 
     public bool? IsMaster(string user, string password)
