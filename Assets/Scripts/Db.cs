@@ -33,16 +33,16 @@ public class Db : MonoBehaviour
     {
         allWorks = new Dictionary<Work, Sprite>()
         {
-            { Work.STONECARVER, managerImg },
-            { Work.PLUMBER, painterImg },
-            { Work.ELECTRICIAN, plumberImg },
-            { Work.CARPENTER, electricianImg },
-            { Work.WOODWORKER, bricklayerImg },
-            { Work.PLASTERER, tilerImg },
-            { Work.FLOORSETTER, carpenterImg },
-            { Work.PAINTER, heatingEngineerImg },
-            { Work.LOCKSMITH, rooferImg },
-            { Work.MANAGER, platterImg },
+            { Work.STONECARVER, stoneCarverImg },
+            { Work.PLUMBER, plumberImg },
+            { Work.ELECTRICIAN, electricianImg },
+            { Work.CARPENTER, carpenterImg },
+            { Work.WOODWORKER, platterImg },
+            { Work.PLASTERER, platterImg },
+            { Work.FLOORSETTER, tilerImg },
+            { Work.PAINTER, painterImg },
+            { Work.LOCKSMITH, locksmithImg },
+            { Work.MANAGER, managerImg },
         };
     }
 
@@ -56,7 +56,7 @@ public class Db : MonoBehaviour
         { "Jenk",  new Worker() {
             IsManager = true,
             Password = "kiRR@",
-            Job = Work.MANAGER
+            Job = Work.LOCKSMITH
         } },
         { "Era",  new Worker() {
             IsManager = false,
