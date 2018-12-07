@@ -5,46 +5,59 @@ public class FieldManager : MonoBehaviour
 {
     [SerializeField]
     private Field kitchen, livingRoom, hall, office, bedroom1, dressing, wc, corridor, stair, bathroom;
+    [SerializeField]
+    private Sprite kitchenImg, livingRoomImg, hallImg, officeImg, bedroom1Img, dressingImg, wcImg, corridorImg, stairImg, bathroomImg;
 
-    private struct RoomInfo
+    public struct RoomInfo
     {
         public float Size;
+        public Sprite Image;
     }
 
-    private Dictionary<Field, RoomInfo> allRooms;
+    public Dictionary<Field, RoomInfo> allRooms;
 
     private void Start()
     {
         allRooms = new Dictionary<Field, RoomInfo>();
         allRooms.Add(kitchen, new RoomInfo() {
-            Size = 12.67f
+            Size = 12.67f,
+            Image = kitchenImg
         });
         allRooms.Add(livingRoom, new RoomInfo() {
-            Size = 42f
+            Size = 42f,
+            Image = livingRoomImg
         });
         allRooms.Add(hall, new RoomInfo() {
-            Size = 3.09f
+            Size = 3.09f,
+            Image = hallImg
         });
         allRooms.Add(office, new RoomInfo() {
-            Size = 10.68f
+            Size = 10.68f,
+            Image = officeImg
         });
         allRooms.Add(bedroom1, new RoomInfo() {
-            Size = 15.56f
+            Size = 15.56f,
+            Image = bedroom1Img
         });
         allRooms.Add(dressing, new RoomInfo() {
-            Size = 6.80f
+            Size = 6.80f,
+            Image = dressingImg
         });
         allRooms.Add(wc, new RoomInfo() {
-            Size = 1.99f
+            Size = 1.99f,
+            Image = wcImg
         });
         allRooms.Add(corridor, new RoomInfo() {
-            Size = 3.58f
+            Size = 3.58f,
+            Image = corridorImg
         });
         allRooms.Add(stair, new RoomInfo() {
-            Size = 0.81f
+            Size = 0.81f,
+            Image = stairImg
         });
         allRooms.Add(bathroom, new RoomInfo() {
-            Size = 9.41f
+            Size = 9.41f,
+            Image = bathroomImg
         });
     }
 }

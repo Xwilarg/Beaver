@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MainCanvas
   - GameManager
+  - FieldManager
   layers:
   - Default
   - TransparentFX

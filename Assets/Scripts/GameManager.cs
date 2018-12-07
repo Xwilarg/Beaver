@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Material selectedMat;
 
+    private InfoPanel infoPanel;
+    private FieldManager fm;
+
     public Field CurrentField { private set; get; }
 
     public void SetField(Field f)
@@ -30,11 +33,21 @@ public class GameManager : MonoBehaviour
         CurrentField = f;
         if (CurrentField != null)
             CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+        if (infoPanel == null)
+        {
+            infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
+            fm = GameObject.FindGameObjectWithTag("FieldManager").GetComponent<FieldManager>();
+        }
+        if (f != null)
+            infoPanel.SetContent(f, fm.allRooms[f]);
+        else
+            infoPanel.SetContent(null, new FieldManager.RoomInfo());
     }
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        infoPanel = null;
     }
 
     public void Launch()
