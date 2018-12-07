@@ -32,14 +32,14 @@ public class GameManager : MonoBehaviour
 
     public Field CurrentField { private set; get; }
 
+    public string Username { private set; get; }
+
     public void SetField(Field f)
     {
         if (f == CurrentField)
             CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
         else
         {
-            //if (CurrentField != null)
-            //    CurrentField.GetComponent<MeshRenderer>().material = baseMat;
             CurrentField = f;
             if (CurrentField != null)
             {
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
             errorText.text = "This user does not exist.";
         else
         {
+            Username = userField.text;
             isMaster = res.Value.IsManager;
             work = res.Value.Job;
             workSprite = db.allWorks[res.Value.Job];
