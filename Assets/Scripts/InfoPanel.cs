@@ -18,7 +18,7 @@ public class InfoPanel : MonoBehaviour
         {
             panelGo.SetActive(true);
             nameText.text = f.name;
-            descriptionText.text = "Room size: " + infos.Size + " m²";
+            descriptionText.text = "Room size:\n" + infos.Size + " m²";
             image.sprite = infos.Image;
         }
     }
