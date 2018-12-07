@@ -9,6 +9,32 @@ public class Db : MonoBehaviour
         public string Password;
     }
 
+    public enum Work
+    {
+        painter,
+        plumber,
+        electrician,
+        bricklayer,
+        tiler,
+        capenter,
+        heatingEngineer,
+        roofer,
+        platter,
+        licksmith,
+        stoneCarver
+    }
+
+    private Sprite painterImg, plumberImg, electricianImg, bricklayerImg, tilerImg, capenterImg, heatingEngineerImg, rooferImg, platterImg, licksmithImg, stoneCarverImg;
+
+    private Dictionary<Work, Sprite> allWorks;
+
+    private void Start()
+    {
+        allWorks = new Dictionary<Work, Sprite>()
+        {
+        };
+    }
+
     private readonly Dictionary<string, Worker> users = new Dictionary<string, Worker>() // Sample Db, need to be refactor using a real one
     {
         { "Renia", new Worker() {
