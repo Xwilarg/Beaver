@@ -1402,3 +1402,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d961bfa6fae94448b746bc093ef265c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  painterImg: {fileID: 21300000, guid: 6aa919b7eda5b814f92effa2542f0352, type: 3}
+  plumberImg: {fileID: 21300000, guid: 4bc5a5844a08e1c40ac2cf33b2a29b0e, type: 3}
+  electricianImg: {fileID: 21300000, guid: 79e68637a9c78ec48a24617e77af3cfb, type: 3}
+  bricklayerImg: {fileID: 21300000, guid: 59fb407da989031448d80a08eaa94933, type: 3}
+  tilerImg: {fileID: 21300000, guid: b89deffac6b98c342bd9239a60e2270d, type: 3}
+  capenterImg: {fileID: 21300000, guid: 8186f25ff838c3042940955ce2311f91, type: 3}
+  heatingEngineerImg: {fileID: 21300000, guid: c7ad1dd7ee7bf3144861a89227203da3, type: 3}
+  rooferImg: {fileID: 21300000, guid: e32de487df2d4c447b7ee46d63344691, type: 3}
+  platterImg: {fileID: 21300000, guid: 3e4d2098f98a7a149a94cc3b1ad0bc0e, type: 3}
+  licksmithImg: {fileID: 21300000, guid: 64a416eecaab4534abf67ee334abdbd7, type: 3}
+  stoneCarverImg: {fileID: 21300000, guid: 75be62f7343048245988249f35d05016, type: 3}
