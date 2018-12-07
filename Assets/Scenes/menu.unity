@@ -1064,8 +1064,8 @@ MonoBehaviour:
   userField: {fileID: 537879901}
   passwordField: {fileID: 1298569719}
   errorText: {fileID: 1471820780}
-  baseMat: {fileID: 0}
-  selectedMat: {fileID: 0}
+  baseMat: {fileID: 2100000, guid: 546784efd5afd9d4ba77453c96de7b02, type: 2}
+  selectedMat: {fileID: 2100000, guid: 17ccf67003efa82469cf0b13528a8d7e, type: 2}
 --- !u!1 &1983609094
 GameObject:
   m_ObjectHideFlags: 0
