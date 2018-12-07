@@ -13,12 +13,6 @@ public class Field : MonoBehaviour
         debug = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<DebugPannel>();
     }
 
-    public void NextState()
-    {
-        if (currentState < STATE.ERROR)
-            currentState += 1;
-    }
-
     private void OnMouseDown()
     {
         gm.SetField(this);

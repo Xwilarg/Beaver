@@ -35,10 +35,7 @@ public class GameManager : MonoBehaviour
     public void SetField(Field f)
     {
         if (f == CurrentField)
-        {
-            CurrentField.NextState();
             CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
-        }
         else
         {
             if (CurrentField != null)
