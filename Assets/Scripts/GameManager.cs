@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
         if (CurrentField != null)
             CurrentField.GetComponent<MeshRenderer>().material = baseMat;
         CurrentField = f;
-        CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+        if (CurrentField != null)
+            CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
     }
 
     private void Start()
