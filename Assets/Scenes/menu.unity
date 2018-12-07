@@ -1066,6 +1066,12 @@ MonoBehaviour:
   errorText: {fileID: 1471820780}
   baseMat: {fileID: 2100000, guid: 546784efd5afd9d4ba77453c96de7b02, type: 2}
   selectedMat: {fileID: 2100000, guid: 17ccf67003efa82469cf0b13528a8d7e, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 546784efd5afd9d4ba77453c96de7b02, type: 2}
+  - {fileID: 2100000, guid: 5be465048808cf9409e6b7926bae4d9b, type: 2}
+  - {fileID: 2100000, guid: 949ba3f1a694f024caa40bcd870ac5a1, type: 2}
+  - {fileID: 2100000, guid: 2645c9f8668afa240927a14c9ca6f5d4, type: 2}
+  - {fileID: 2100000, guid: 636debbda5c640b448a9f1ff032d0528, type: 2}
 --- !u!1 &1983609094
 GameObject:
   m_ObjectHideFlags: 0
