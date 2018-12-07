@@ -51,17 +51,17 @@ public class Db : MonoBehaviour
         { "Renia", new Worker() {
             IsManager = true,
             Password = "awak_",
-            Job = Work.STONECARVER
+            Job = Work.MANAGER
         } },
         { "Jenk",  new Worker() {
             IsManager = true,
             Password = "kiRR@",
-            Job = Work.STONECARVER
+            Job = Work.MANAGER
         } },
         { "Era",  new Worker() {
             IsManager = false,
             Password = "rekk",
-            Job = Work.PAINTER
+            Job = Work.ELECTRICIAN
         }  },
         { "Kinoi",  new Worker() {
             IsManager = false,
