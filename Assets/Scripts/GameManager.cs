@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     private Material baseMat;
     [SerializeField]
     private Material selectedMat;
+    [SerializeField]
+    private List<Material> materials;
 
     private InfoPanel infoPanel;
     private FieldManager fm;
@@ -28,24 +31,33 @@ public class GameManager : MonoBehaviour
 
     public void SetField(Field f)
     {
-        if (CurrentField != null)
-            CurrentField.GetComponent<MeshRenderer>().material = baseMat;
-        CurrentField = f;
-        if (CurrentField != null)
-            CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
-        if (infoPanel == null)
+        if (f == CurrentField)
         {
-            infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
-            fm = GameObject.FindGameObjectWithTag("FieldManager").GetComponent<FieldManager>();
+            CurrentField.NextState();
+            CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
         }
-        if (f != null)
-            infoPanel.SetContent(f, fm.allRooms[f]);
         else
-            infoPanel.SetContent(null, new FieldManager.RoomInfo());
+        {
+            if (CurrentField != null)
+                CurrentField.GetComponent<MeshRenderer>().material = baseMat;
+            CurrentField = f;
+            if (CurrentField != null)
+                CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+            if (infoPanel == null)
+            {
+                infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
+                fm = GameObject.FindGameObjectWithTag("FieldManager").GetComponent<FieldManager>();
+            }
+            if (f != null)
+                infoPanel.SetContent(f, fm.allRooms[f]);
+            else
+                infoPanel.SetContent(null, new FieldManager.RoomInfo());
+        }
     }
 
     private void Start()
     {
+        Debug.Assert(materials.Count == (int)Field.STATE.SIZE);
         DontDestroyOnLoad(gameObject);
         infoPanel = null;
     }
