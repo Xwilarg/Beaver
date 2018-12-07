@@ -15,7 +15,7 @@ public class Field : MonoBehaviour
 
     public void NextState()
     {
-        if (currentState <= STATE.ERROR)
+        if (currentState < STATE.ERROR)
             currentState += 1;
     }
 
