@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private Vector2 from;
-    private float turnSpeed = 5f;
-    private Vector2 movement;
+    private float orthoZoomSpeed = 0.005f;
+    private float oldAngle = 0;
 
     // Use this for initialization
     void Start () {
@@ -18,34 +17,41 @@ public class CameraMovement : MonoBehaviour
     {
         if (Input.touchCount == 2)
         {
-            Touch touch1 = Input.GetTouch(0);
-            Touch touch2 = Input.GetTouch(1);
+            Touch touchZero = Input.GetTouch(0);
+            Touch touchOne = Input.GetTouch(1);
 
-            switch (touch2.phase)
+            if (touchOne.phase == TouchPhase.Moved)
             {
-                case TouchPhase.Began:
-                    {
-                        from = touch1.position - touch2.position;
-                        break;
-                    }
-                case TouchPhase.Moved:
-                    {
-                        Vector2 current = touch1.position - touch2.position;
-                        float targetAngle = Vector2.Angle(current, from);
-
-                        if (targetAngle > 10)
-                        {
-                            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, targetAngle), turnSpeed);
-                        }
-                        else
-                        {
-                            GetComponent<Camera>().orthographicSize += (from - current).magnitude;
-                        }
-                        break;
-                    }
+                Zoom(touchZero, touchOne);
+                Rotate(touchZero, touchOne);
             }
         }
     }
 
-    
+    private void Zoom(Touch touchZero, Touch touchOne)
+    {
+        Vector2 current = touchZero.position - touchOne.position;
+
+        float newAngle = Mathf.Atan2(current.y, current.x);
+        float deltaAngle = Mathf.DeltaAngle(newAngle, oldAngle) * Mathf.Rad2Deg;
+        oldAngle = newAngle;
+
+        this.transform.rotation *= Quaternion.Euler(0, 0, deltaAngle);
+    }
+
+    private void Rotate(Touch touchZero, Touch touchOne)
+    {
+        Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
+        Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
+
+        float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+        float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
+
+        float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
+
+        Camera camera = GetComponent<Camera>();
+        camera.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
+        camera.orthographicSize = Mathf.Max(camera.orthographicSize, 0.1f);
+    }
+
 }
