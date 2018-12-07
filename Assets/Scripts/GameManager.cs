@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     private InfoPanel infoPanel;
     private FieldManager fm;
 
+    public Db.Work work { private set; get; }
+    public Sprite workSprite { private set; get; }
+
     public Field CurrentField { private set; get; }
 
     public void SetField(Field f)
@@ -64,12 +67,14 @@ public class GameManager : MonoBehaviour
 
     public void Launch()
     {
-        bool? res = db.IsMaster(userField.text, passwordField.text);
+        var res = db.IsMaster(userField.text, passwordField.text);
         if (res == null)
             errorText.text = "This user does not exist.";
         else
         {
-            isMaster = res.Value;
+            isMaster = res.Value.IsManager;
+            work = res.Value.Job;
+            workSprite = db.allWorks[res.Value.Job];
             SceneManager.LoadScene("main");
         }
     }
