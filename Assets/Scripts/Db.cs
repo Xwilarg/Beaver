@@ -12,18 +12,16 @@ public class Db : MonoBehaviour
 
     public enum Work
     {
-        manager,
-        painter,
-        plumber,
-        electrician,
-        bricklayer,
-        tiler,
-        carpenter,
-        heatingEngineer,
-        roofer,
-        platter,
-        locksmith,
-        stoneCarver
+        STONECARVER,
+        PLUMBER,
+        ELECTRICIAN,
+        CARPENTER,
+        WOODWORKER,
+        PLASTERER,
+        FLOORSETTER,
+        PAINTER,
+        LOCKSMITH,
+        MANAGER
     }
 
     [SerializeField]
@@ -35,18 +33,16 @@ public class Db : MonoBehaviour
     {
         allWorks = new Dictionary<Work, Sprite>()
         {
-            { Work.manager, managerImg },
-            { Work.painter, painterImg },
-            { Work.plumber, plumberImg },
-            { Work.electrician, electricianImg },
-            { Work.bricklayer, bricklayerImg },
-            { Work.tiler, tilerImg },
-            { Work.carpenter, carpenterImg },
-            { Work.heatingEngineer, heatingEngineerImg },
-            { Work.roofer, rooferImg },
-            { Work.platter, platterImg },
-            { Work.locksmith, locksmithImg },
-            { Work.stoneCarver, stoneCarverImg }
+            { Work.STONECARVER, managerImg },
+            { Work.PLUMBER, painterImg },
+            { Work.ELECTRICIAN, plumberImg },
+            { Work.CARPENTER, electricianImg },
+            { Work.WOODWORKER, bricklayerImg },
+            { Work.PLASTERER, tilerImg },
+            { Work.FLOORSETTER, carpenterImg },
+            { Work.PAINTER, heatingEngineerImg },
+            { Work.LOCKSMITH, rooferImg },
+            { Work.MANAGER, platterImg },
         };
     }
 
@@ -55,37 +51,27 @@ public class Db : MonoBehaviour
         { "Renia", new Worker() {
             IsManager = true,
             Password = "awak_",
-            Job = Work.manager
+            Job = Work.STONECARVER
         } },
         { "Jenk",  new Worker() {
             IsManager = true,
             Password = "kiRR@",
-            Job = Work.manager
+            Job = Work.STONECARVER
         } },
         { "Era",  new Worker() {
             IsManager = false,
             Password = "rekk",
-            Job = Work.heatingEngineer
+            Job = Work.PAINTER
         }  },
         { "Kinoi",  new Worker() {
             IsManager = false,
             Password = "_Ino",
-            Job = Work.carpenter
-        } },
-        { "Denko",  new Worker() {
-            IsManager = false,
-            Password = "parr",
-            Job = Work.locksmith
-        }  },
-        { "Mino",  new Worker() {
-            IsManager = false,
-            Password = "@w@",
-            Job = Work.stoneCarver
+            Job = Work.FLOORSETTER
         } },
         { "Wan",  new Worker() {
             IsManager = false,
             Password = "dennn",
-            Job = Work.bricklayer
+            Job = Work.WOODWORKER
         }  }
     };
 
