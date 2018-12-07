@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text errorText;
 
+    public Field CurrentField { set; get; }
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
