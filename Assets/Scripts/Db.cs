@@ -3,28 +3,42 @@ using UnityEngine;
 
 public class Db : MonoBehaviour
 {
-    public class Tuple<T, N>
+    public struct Worker
     {
-        public Tuple(T item1, N item2)
-        {
-            Item1 = item1;
-            Item2 = item2;
-        }
-
-        public T Item1 { private set; get; }
-        public N Item2 { private set; get; }
+        public bool IsManager;
+        public string Password;
     }
 
-    private readonly Dictionary<string, Tuple<string, bool>> users = new Dictionary<string, Tuple<string, bool>>() // Sample Db, need to be refactor using a real one
+    private readonly Dictionary<string, Worker> users = new Dictionary<string, Worker>() // Sample Db, need to be refactor using a real one
     {
-        { "Renia", new Tuple<string, bool>("awak_", true) },
-        { "Jenk", new Tuple<string, bool>("kiRR@", true) },
-        { "Era", new Tuple<string, bool>("rekk", false) },
-        { "Kinoi", new Tuple<string, bool>("_Ino", false) },
-        { "Denko", new Tuple<string, bool>("parr", false) },
-        { "Mino", new Tuple<string, bool>("@w@", false) },
-        { "Wan", new Tuple<string, bool>("dennn", false) },
-        { "", new Tuple<string, bool>("", true)}
+        { "Renia", new Worker() {
+            IsManager = true,
+            Password = "awak_"
+        } },
+        { "Jenk",  new Worker() {
+            IsManager = true,
+            Password = "kiRR@"
+        } },
+        { "Era",  new Worker() {
+            IsManager = false,
+            Password = "rekk"
+        }  },
+        { "Kinoi",  new Worker() {
+            IsManager = false,
+            Password = "_Ino"
+        } },
+        { "Denko",  new Worker() {
+            IsManager = false,
+            Password = "parr"
+        }  },
+        { "Mino",  new Worker() {
+            IsManager = false,
+            Password = "@w@"
+        } },
+        { "Wan",  new Worker() {
+            IsManager = false,
+            Password = "dennn"
+        }  }
     };
 
     public bool? IsMaster(string user, string password)
@@ -32,8 +46,8 @@ public class Db : MonoBehaviour
         if (!users.ContainsKey(user))
             return (null);
         var me = users[user];
-        if (me.Item1 == password)
-            return (me.Item2);
+        if (me.Password == password)
+            return (me.IsManager);
         return (null);
     }
 }
