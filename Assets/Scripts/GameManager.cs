@@ -42,7 +42,12 @@ public class GameManager : MonoBehaviour
                 CurrentField.GetComponent<MeshRenderer>().material = baseMat;
             CurrentField = f;
             if (CurrentField != null)
-                CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+            {
+                if (CurrentField.currentState == Field.STATE.NONE)
+                    CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
+                else
+                    CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
+            }
             if (infoPanel == null)
             {
                 infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
