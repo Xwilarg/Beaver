@@ -24,6 +24,7 @@ public class Db : MonoBehaviour
         stoneCarver
     }
 
+    [SerializeField]
     private Sprite painterImg, plumberImg, electricianImg, bricklayerImg, tilerImg, capenterImg, heatingEngineerImg, rooferImg, platterImg, licksmithImg, stoneCarverImg;
 
     private Dictionary<Work, Sprite> allWorks;
