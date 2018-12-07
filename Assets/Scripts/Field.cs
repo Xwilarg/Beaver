@@ -3,7 +3,6 @@
 public class Field : MonoBehaviour
 {
     private GameManager gm;
-    private DebugPannel debug;
     public enum STATE { NONE, OCCUPIED, WIP, DONE, ERROR, SIZE};
     public STATE currentState { get; private set; }
 
@@ -23,10 +22,9 @@ public class Field : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        debug = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<DebugPannel>();
         if (gm.work == neededWork)
             GetComponent<MeshRenderer>().material = CanDo;
-        else if (gm.work < neededWork)
+        else if (gm.work > neededWork)
             GetComponent<MeshRenderer>().material = CantDo;
         else
             GetComponent<MeshRenderer>().material = Done;
@@ -35,6 +33,5 @@ public class Field : MonoBehaviour
     private void OnMouseDown()
     {
         gm.SetField(this);
-        debug.SetText("Current field: " + name);
     }
 }

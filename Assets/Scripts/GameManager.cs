@@ -36,28 +36,16 @@ public class GameManager : MonoBehaviour
 
     public void SetField(Field f)
     {
-        if (f == CurrentField)
-            CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
-        else
+
+        if (infoPanel == null)
         {
-            CurrentField = f;
-            if (CurrentField != null)
-            {
-                if (CurrentField.currentState == Field.STATE.NONE)
-                    CurrentField.GetComponent<MeshRenderer>().material = selectedMat;
-                else
-                    CurrentField.GetComponent<MeshRenderer>().material = materials[(int)CurrentField.currentState];
-            }
-            if (infoPanel == null)
-            {
-                infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
-                fm = GameObject.FindGameObjectWithTag("FieldManager").GetComponent<FieldManager>();
-            }
-            if (f != null)
-                infoPanel.SetContent(f, fm.allRooms[f]);
-            else
-                infoPanel.SetContent(null, new FieldManager.RoomInfo());
+            infoPanel = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InfoPanel>();
+            fm = GameObject.FindGameObjectWithTag("FieldManager").GetComponent<FieldManager>();
         }
+        if (f != null)
+            infoPanel.SetContent(f, fm.allRooms[f]);
+        else
+            infoPanel.SetContent(null, new FieldManager.RoomInfo());
     }
 
     private void Start()
