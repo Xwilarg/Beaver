@@ -21,6 +21,11 @@ public class FieldManager : MonoBehaviour
         gm.CurrentField.IncreaseWork();
     }
 
+    public void TakeWork()
+    {
+        gm.CurrentField.DoingWork();
+    }
+
     public Dictionary<Field, RoomInfo> allRooms;
 
     private void Start()

@@ -5,7 +5,7 @@ public class Field : MonoBehaviour
     private GameManager gm;
 
     [SerializeField]
-    private Material CantDo, CanDo, Done;
+    private Material CantDo, CanDo, Done, Doing;
 
     private enum Status
     {
@@ -29,6 +29,12 @@ public class Field : MonoBehaviour
             neededWork++;
             UpdateMats();
         }
+    }
+
+    public void DoingWork()
+    {
+        if (gm.work == neededWork)
+            GetComponent<MeshRenderer>().material = Doing;
     }
 
     private void UpdateMats()
