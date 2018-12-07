@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class InfoPanel : MonoBehaviour
@@ -18,7 +20,8 @@ public class InfoPanel : MonoBehaviour
         {
             panelGo.SetActive(true);
             nameText.text = f.name;
-            descriptionText.text = "Room size:\n" + infos.Size + " m²";
+            string jobName = f.GetWork().ToString();
+            descriptionText.text = "Room size:\n" + infos.Size + " m²" + Environment.NewLine + Environment.NewLine + "Waiting for " + jobName[0] + new string(jobName.Skip(1).ToArray()).ToLower();
             image.sprite = infos.Image;
         }
     }

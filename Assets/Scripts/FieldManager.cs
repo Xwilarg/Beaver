@@ -14,10 +14,18 @@ public class FieldManager : MonoBehaviour
         public Sprite Image;
     }
 
+    private GameManager gm;
+
+    public void IncreaseWork()
+    {
+        gm.CurrentField.IncreaseWork();
+    }
+
     public Dictionary<Field, RoomInfo> allRooms;
 
     private void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         allRooms = new Dictionary<Field, RoomInfo>();
         allRooms.Add(kitchen, new RoomInfo() {
             Size = 12.67f,

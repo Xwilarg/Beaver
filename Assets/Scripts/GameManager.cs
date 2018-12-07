@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Assert(materials.Count == (int)Field.STATE.SIZE);
         DontDestroyOnLoad(gameObject);
         infoPanel = null;
     }

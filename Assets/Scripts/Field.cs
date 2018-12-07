@@ -3,8 +3,6 @@
 public class Field : MonoBehaviour
 {
     private GameManager gm;
-    public enum STATE { NONE, OCCUPIED, WIP, DONE, ERROR, SIZE};
-    public STATE currentState { get; private set; }
 
     [SerializeField]
     private Material CantDo, CanDo, Done;
@@ -18,6 +16,17 @@ public class Field : MonoBehaviour
 
     [SerializeField]
     private Db.Work neededWork;
+
+    public Db.Work GetWork()
+    {
+        return (neededWork);
+    }
+
+    public void IncreaseWork()
+    {
+        if (gm.work == neededWork)
+            neededWork++;
+    }
 
     private void Start()
     {
